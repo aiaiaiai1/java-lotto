@@ -3,8 +3,8 @@ package lotto.domain;
 import java.util.*;
 
 public class Lotto {
-    static final int PRICE = 1000;
-    private static final int COUNT_OF_NUMBERS = 6;
+    public static final int PRICE = 1000;
+    public static final int COUNT_OF_NUMBERS = 6;
     private final List<LottoNumber> numbers = new ArrayList<>();
 
     public Lotto(List<Integer> numbers) {

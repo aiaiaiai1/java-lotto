@@ -1,7 +1,7 @@
 package lotto.domain;
 
 public class LottoNumber {
-    private static final int LOWER_INCLUSIVE = 1;
+    public static final int LOWER_INCLUSIVE = 1;
     public static final int UPPER_INCLUSIVE = 45;
     private final int number;
 
