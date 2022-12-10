@@ -6,7 +6,11 @@ import java.util.List;
 
 public class LottoMachine {
     private List<Lotto> lottoTable;
-    private final RandomNumbersGenerator randomNumbersGenerator = new RandomNumbersGenerator();
+    private final NumbersGenerator numbersGenerator;
+
+    public LottoMachine(NumbersGenerator numbersGenerator) {
+        this.numbersGenerator = numbersGenerator;
+    }
 
     public void purchaseLotto(Money money) {
         validateMoney(money);
@@ -18,8 +22,8 @@ public class LottoMachine {
         this.lottoTable = lottoTable;
     }
 
-    protected Lotto generateRandomLotto() {
-        return new Lotto(randomNumbersGenerator.generateUniqueNumbers());
+    private Lotto generateRandomLotto() {
+        return new Lotto(numbersGenerator.generate());
     }
 
     private void validateMoney(Money money) {
