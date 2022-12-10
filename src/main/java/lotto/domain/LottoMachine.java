@@ -31,4 +31,14 @@ public class LottoMachine {
     public List<Lotto> getLottoTable() {
         return Collections.unmodifiableList(lottoTable);
     }
+
+    public LottoResult getResult(WinningLotto winningLotto) {
+        List<Rank> rankTable = new ArrayList<>();
+        for (Lotto lotto : lottoTable) {
+            rankTable.add(winningLotto.getRank(lotto));
+        }
+        return new LottoResult(rankTable);
+    }
+
+
 }
