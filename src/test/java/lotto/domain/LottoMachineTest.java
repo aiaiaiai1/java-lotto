@@ -1,15 +1,14 @@
 package lotto.domain;
 
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class LottoMachineTest {
     LottoMachine lottoMachine = new LottoMachine() {
@@ -19,7 +18,7 @@ public class LottoMachineTest {
     };
 
     @DisplayName("로또 구입금액이 0인 경우와 1000원으로 나누어 떨어지지 않는 경우 예외 발생")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{0}원인 경우")
     @ValueSource(ints = {0, 1500})
     void purchaseLottoByInValidMoney(int money) {
         Money purchasingMoney = new Money(money);

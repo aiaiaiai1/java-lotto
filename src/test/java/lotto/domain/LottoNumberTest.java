@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 public class LottoNumberTest {
     @DisplayName("로또번호가 1~45 사이의 번호가 아닌 경우 예외 발생")
-    @ParameterizedTest(name = "{displayName} {index}")
+    @ParameterizedTest(name = "{0}인 경우")
     @ValueSource(ints = {0, 46})
     void createLottoNumberByInvalidNumber(int number) {
         assertThatThrownBy(
@@ -18,7 +18,7 @@ public class LottoNumberTest {
     }
 
     @DisplayName("로또번호가 1~45 사이의 번호인 경우")
-    @ParameterizedTest(name = "{displayName} {index}")
+    @ParameterizedTest(name = "{0}인 경우")
     @ValueSource(ints = {1, 20, 45})
     void createLottoNumber(int number) {
         LottoNumber lottoNumber = new LottoNumber(number);
@@ -27,7 +27,7 @@ public class LottoNumberTest {
     }
 
     @DisplayName("로또번호가 같은지 비교하기")
-    @ParameterizedTest(name = "{displayName} {index}")
+    @ParameterizedTest(name = "{1}인경우")
     @CsvSource(value = {"10,true", "20,false"})
     void checkIsEqualLottoNumber(int number, boolean expected) {
         LottoNumber lottoNumber = new LottoNumber(10);

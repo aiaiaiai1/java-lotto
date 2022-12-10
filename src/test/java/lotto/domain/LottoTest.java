@@ -1,5 +1,8 @@
 package lotto.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,9 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LottoTest {
     @DisplayName("로또 번호의 개수가 6개가 넘어가면 예외가 발생한다.")
@@ -38,7 +38,7 @@ class LottoTest {
     }
 
     @DisplayName("로또에 해당 로또번호가 있는지 확인")
-    @ParameterizedTest(name = "{displayName} {index}")
+    @ParameterizedTest(name = "{1}인경우")
     @CsvSource(value = {"6,true", "7,false"})
     void checkContainLottoNumber(int number, boolean expected) {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
