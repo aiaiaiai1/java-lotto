@@ -3,7 +3,6 @@ package lotto.domain;
 import java.util.*;
 
 public class LottoResult {
-
     private final Map<Rank, Integer> result = new HashMap<>() {
         {
             for (Rank rank : Rank.values()) {
