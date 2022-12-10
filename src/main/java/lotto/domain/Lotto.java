@@ -3,6 +3,7 @@ package lotto.domain;
 import java.util.*;
 
 public class Lotto {
+    static final int PRICE = 1000;
     private static final int COUNT_OF_NUMBERS = 6;
     private final List<LottoNumber> numbers = new ArrayList<>();
 
@@ -31,7 +32,27 @@ public class Lotto {
             throw new IllegalArgumentException();
         }
     }
-    public List<LottoNumber> getNumbers(){
+
+    public List<LottoNumber> getNumbers() {
         return Collections.unmodifiableList(numbers);
     }
+
+    public boolean contains(LottoNumber targetLottoNumber) {
+        for (LottoNumber lottoNumber : numbers) {
+            if (lottoNumber.equals(targetLottoNumber))
+                return true;
+        }
+        return false;
+    }
+
+    public int compare(Lotto lotto) {
+        int count = 0;
+        for (LottoNumber lottoNumber : lotto.getNumbers()) {
+            if (contains(lottoNumber)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
