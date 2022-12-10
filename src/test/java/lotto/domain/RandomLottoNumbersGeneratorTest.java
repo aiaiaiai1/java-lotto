@@ -8,14 +8,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class RandomNumbersGeneratorTest {
-    static RandomNumbersGenerator randomNumbersGenerator = new RandomNumbersGenerator();
+public class RandomLottoNumbersGeneratorTest {
+    static RandomLottoNumbersGenerator randomLottoNumbersGenerator = new RandomLottoNumbersGenerator();
     static List<Integer> numbers;
 
     @DisplayName("6자리 중복없는 1~45의 랜덤번호 생성하기")
     @BeforeAll
     static void generateNumbers() {
-        numbers = randomNumbersGenerator.generateUniqueNumbers();
+        numbers = randomLottoNumbersGenerator.generate();
     }
 
     @DisplayName("1~45범위 인지 확인")
