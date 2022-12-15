@@ -28,7 +28,7 @@ public class LottoMachine {
 
     private void validateMoney(Money money) {
         if (!money.isDivisible(Lotto.PRICE) || money.isZero()) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 1000원 단위로 입력해주세요");
         }
     }
 

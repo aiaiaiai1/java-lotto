@@ -14,7 +14,7 @@ public class WinningLotto {
 
     private void validate(List<Integer> numbers, int bounsNumber) {
         if (numbers.contains(bounsNumber)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("[ERROR] 로또 번호에 보너스 번호가 포함되어 있습니다.");
         }
     }
 
