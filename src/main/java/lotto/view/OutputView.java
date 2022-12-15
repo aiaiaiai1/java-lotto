@@ -1,6 +1,7 @@
 package lotto.view;
 
 import lotto.domain.Lotto;
+import lotto.domain.LottoNumber;
 import lotto.domain.LottoResult;
 import lotto.domain.Rank;
 
@@ -29,8 +30,13 @@ public class OutputView {
 
     public void printLottoTable(List<Lotto> lottoTable) {
         for (Lotto lotto : lottoTable) {
-            System.out.println(lotto.toString() + NEW_LINE);
+            List<Integer> numbers = new ArrayList<>();
+            for (LottoNumber lottoNumber : lotto.getNumbers()) {
+                numbers.add(lottoNumber.getNumber());
+            }
+            System.out.println(numbers);
         }
+
     }
 
     public void printPurchasedLottoAmount(List<Lotto> lottoTable) {
@@ -40,5 +46,9 @@ public class OutputView {
     public void printLottoResult(LottoResult lottoResult) {
         for (RankNotice rankNotice : RankNotice.values())
             System.out.printf(rankNotice.notice, lottoResult.getCountOfRank(rankNotice.rank));
+    }
+
+    public void printNewLine() {
+        System.out.println();
     }
 }
